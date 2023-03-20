@@ -12,7 +12,8 @@ module.exports = {
         yellow: '#E6BF00',
         gray: '#BABABA',
         background: '#EEEEEE',
-        white: '#FFFFFF'
+        white: '#FFFFFF',
+        black: '#0f172a'
       },
       fontFamily: {
         roboto: ['Roboto', 'sans-serif']

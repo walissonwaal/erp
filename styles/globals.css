@@ -5,5 +5,14 @@
 @tailwind utilities;
 
 body {
-  @apply bg-background font-roboto;
+  @apply h-screen bg-background font-roboto;
+}
+.home {
+  height: calc(100vh - 184px);
+}
+h1 {
+  @apply text-3xl;
+}
+h2 {
+  @apply text-2xl;
 }

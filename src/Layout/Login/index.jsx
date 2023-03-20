@@ -2,8 +2,8 @@ import React from 'react';
 
 const Index = () => {
   return (
-    <div>
-      Página de login
+    <div className='h-full flex justify-center items-center'>
+     <p>Login</p>
     </div>
   );
 }
