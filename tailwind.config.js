@@ -13,7 +13,7 @@ module.exports = {
         gray: '#BABABA',
         background: '#EEEEEE',
         white: '#FFFFFF',
-        black: '#0f172a'
+        black: '#0a0a0a'
       },
       fontFamily: {
         roboto: ['Roboto', 'sans-serif']
