@@ -69,7 +69,7 @@ const Index = () => {
                 onChange={e => setPassword(e.target.value)}
               />
             </div>
-            <button className='px-6 bg-green text-white font-bold mt-4' type='submit'>Registrar</button>
+            <ButtonLogin type='submit'>Registrar</ButtonLogin>
           </form>
         </div>
       </div>

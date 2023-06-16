@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 body {
-  @apply h-screen bg-background font-roboto;
+  @apply h-screen bg-erpBackground font-roboto;
 }
 .home {
   height: calc(100vh - 184px);
