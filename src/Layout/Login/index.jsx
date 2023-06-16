@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
+import { useRouter } from 'next/router';
 import { ButtonLogin, RegisterForm } from '@/src/components'
 
 const Index = () => {
+  const router = useRouter();
+
   const [form, setForm] = useState(false)
   const [isUser, setIsUser] = useState(true)
   const [email, setEmail] = useState('')
@@ -23,10 +26,12 @@ const Index = () => {
         const { token } = await response.json();
         localStorage.setItem('token', token);
         console.log('Usuário logado com sucesso!');
+        router.push('/dashboard');
       } else {
         // Erro no login
         console.error('Erro ao fazer login:', response.statusText);
         console.log('Erro ao fazer login!');
+        alert('Por favor, digite seu E-MAIL e sua SENHA.')
       }
       
     } catch (error) {
@@ -49,10 +54,10 @@ const Index = () => {
                 <div className='py-1 flex gap-2'>
                   {/* <label htmlFor='email'>E-mail:</label> */}
                   <input
-                    className='ring-1 rounded px-2 ring-gray'
+                    className='ring-1 px-2 ring-gray'
                     type='text'
                     id='email'
-                    value={email}
+                    value={email}s
                     placeholder='E-mail'
                     onChange={e => setEmail(e.target.value)}
                   />
@@ -60,7 +65,7 @@ const Index = () => {
                 <div>
                   {/* <label htmlFor='password'>Senha:</label> */}
                   <input
-                    className='ring-1 rounded px-2 ring-gray'
+                    className='ring-1 px-2 ring-gray'
                     type='password'
                     id='password'
                     value={password}
@@ -68,32 +73,15 @@ const Index = () => {
                     onChange={e => setPassword(e.target.value)}
                   />
                 </div>
-                <button className='px-6 bg-green text-white font-bold mt-4' type='submit'>Acessar</button>
+                <ButtonLogin type='submit'>Acessar</ButtonLogin>
               </form>
-              {/* <input
-              className={`${
-                !form ? 'block' : 'hidden'
-              } border border-zinc-400 px-2 py-1 text-xs`}
-              type='email'
-              placeholder='E-mail'
-            />
-            <input
-              className={`${
-                form ? 'block' : 'hidden'
-              } border border-zinc-400 px-2 py-1 text-xs`}
-              type='password'
-              placeholder='Senha'
-            />
-            <ButtonLogin onClick={nextForm}>
-              {form ? 'Acessar' : 'Próximo'}
-            </ButtonLogin> */}
             </div>
           </div>
           <p className='text-start text-xs text-neutral-600 my-4'>
             Ainda não tem conta?{' '}
             <strong>
               <button type='button' onClick={() => setIsUser(!isUser)}>
-                Cadastre-se
+                Registre-se
               </button>
             </strong>
             .
