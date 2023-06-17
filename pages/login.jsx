@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Login from '@/src/Layout/Login'
-import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
 export default function login() {
@@ -22,5 +21,8 @@ export default function login() {
 
     checkToken();
   }, [router]);
-  return null
+  
+  return (
+      <Login />
+  )
 }

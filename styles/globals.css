@@ -4,12 +4,75 @@
 @tailwind components;
 @tailwind utilities;
 
+
 body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  grid-template-rows: auto 1fr 50px;
+  height: 100vh;
+}
+
+.header {
+  grid-column: 1 / span 2;
+  /* background-color: #f0f0f0; */
+  /* height: 100px; */
+}
+
+.menu {
+  grid-column: 1;
+  grid-row: 2 / span 2;
+  padding: 10px;
+}
+
+.main {
+  grid-column: 2;
+  grid-row: 2;
+  padding: 10px;
+}
+
+.main.full-width {
+  grid-column: 1 / span 2;
+}
+
+.menu.animating {
+  transition: opacity 0.3s ease-in-out;
+}
+
+.menu.hidden {
+  opacity: 0;
+}
+
+.toggleMenuClose {
+  position: absolute;
+  top: 60px;
+  left: 70px;
+}
+.toggleMenuOpen {
+  position: absolute;
+  top: 60px;
+  left: 2px;
+}
+
+.footer {
+  grid-column: 1 / span 2;
+  grid-row: 3;
+  height: 50px;
+}
+
+/* body {
   @apply h-screen bg-erpBackground font-roboto;
+}
+.layout {
+  display: grid;
 }
 .home {
   height: calc(100vh - 184px);
-}
+} */
 h1 {
   @apply text-3xl;
 }

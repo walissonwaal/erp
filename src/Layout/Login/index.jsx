@@ -39,10 +39,10 @@ const Index = () => {
     }
   }
 
-  function nextForm () {
-    // Fazer verificação do e-mail
-    setForm(!form)
-  }
+  // function nextForm () {
+  //   // Fazer verificação do e-mail
+  //   setForm(!form)
+  // }
   return (
     <>
       {isUser ? (
@@ -73,7 +73,7 @@ const Index = () => {
                     onChange={e => setPassword(e.target.value)}
                   />
                 </div>
-                <ButtonLogin type='submit'>Acessar</ButtonLogin>
+                <button className='bg-erpGreen text-white font-bold text-sm py-1 px-6 mt-4 hover:bg-[#00AC00c0] duration-150' type='submit'>Acessar</button>
               </form>
             </div>
           </div>
