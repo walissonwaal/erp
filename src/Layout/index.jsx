@@ -1,15 +1,22 @@
-import React, { useState } from 'react';
-import Header from './Header'
-import Footer from './Footer'
-import NavBar from './NavBar'
-import {BsBoxArrowLeft, BsBoxArrowInRight} from 'react-icons/bs'
+import React, { useState, useEffect } from 'react';
+import Header from './Header';
+import Footer from './Footer';
+import NavBar from './NavBar';
+import { GiHamburgerMenu } from 'react-icons/gi';
+import { useRouter } from 'next/router';
 
 const Index = ({ children }) => {
-  const [menuVisible, setMenuVisible] = useState(false);
-  const [openMenu, setOpenMenu] = useState(true);
+  const [menuVisible, setMenuVisible] = useState(true);
   const [isAnimating, setIsAnimating] = useState(false);
-  
-  
+
+  const router = useRouter();
+
+  useEffect(() => {
+    if (router.pathname === '/login') {
+      setMenuVisible(false);
+    }
+  }, [router.pathname]);
+
   const toggleMenu = () => {
     setIsAnimating(true);
     setMenuVisible(!menuVisible);
@@ -21,20 +28,16 @@ const Index = ({ children }) => {
   return (
     <div className="container">
       <div className="header"><Header /></div>
-      <div className={`menu bg-erpBlack ${menuVisible ? '' : 'hidden'} ${isAnimating ? 'animating' : ''}`}>
-        <NavBar />
-      </div>
-      {/* {menuVisible ? (
-        <button className='toggleMenuClose text-2xl text-white' onClick={toggleMenu}><BsBoxArrowLeft /></button>
-      ):(
-        openMenu ? (
-          <button className='toggleMenuOpen text-2xl text-black' onClick={toggleMenu}><BsBoxArrowInRight /></button>
-        ):null
-      )} */}
+      {menuVisible ? (
+        <div className={`menu bg-erpBlack ${isAnimating ? 'animating' : ''}`}>
+          <NavBar />
+          <button className='toggleMenuClose text-2xl text-white' onClick={toggleMenu}><GiHamburgerMenu /></button>
+        </div>
+      ) : router.pathname != '/login' ? <button className='toggleMenuOpen text-2xl text-black' onClick={toggleMenu}><GiHamburgerMenu /></button>:null}
       <div className={`main bg-erpBackground ${menuVisible ? '' : 'full-width'}`}>{children}</div>
       <div className="footer"><Footer /></div>
     </div>
-  )
-}
+  );
+};
 
-export default Index
+export default Index;
